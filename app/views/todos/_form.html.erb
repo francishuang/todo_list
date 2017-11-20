@@ -1,0 +1,39 @@
+<div class="form container">
+
+  <div class="errorbox">
+    <% if @todo.errors.any? %>
+      <ul class="errorlist">
+        <% @todo.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
+
+  <div class="itembox">
+    <%= form_for @todo do |f| %>
+
+      <div class="form group">
+        <%= f.label :name, "Name" %>
+        <br>
+        <%= f.text_field :name, class: "form-control" %>
+      </div>
+      <br>
+      <div class="form group">
+        <%= f.label :due_date, "Due Date" %>
+        <br>
+        <%= f.date_select :due_date, class: "form-control" %>
+      </div>
+      <br>
+      <div class="form group">
+        <%= f.label :note, "Note" %>
+        <br>
+        <%= f.text_area :note, class: "form-control" %>
+      </div>
+      <br>
+      <%= f.submit "Submit", class: "btn btn-success" %>
+      <%= link_to 'BACK', :back, class: 'btn btn-default' %>
+    <% end %>  
+  </div>
+
+</div>

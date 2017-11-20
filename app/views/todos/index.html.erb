@@ -1,0 +1,39 @@
+<div class="container">
+
+  <h1 class="text-center">Things To Be Done!</h1>
+
+  <div class="addbtn">
+    <%= link_to 'New Item', new_todo_path, class: 'btn btn-success' %>
+  </div>
+
+  <table class="table table-striped">
+    
+    <thead>
+      <tr>
+        <th>Done</th>
+        <th>Name</th>
+        <th>Due Date</th>
+      </tr>
+    </thead>
+    
+    <tbody>
+
+      <% @todos.each do |todo| %>
+        <tr>
+          <td><%= check_box_tag :done, true, todo.done, data: { url: done_todo_path(todo), method: :post, remote: true } %></td>
+          <td><%= todo.name %></td>
+          <td><%= todo.due_date %></td>
+          <td><%= todo_show_button(todo) %></td>
+          <td><%= todo_edit_button(todo) %></td>
+          <td><%= todo_delete_button(todo) %></td>
+        </tr>
+      <% end %>  
+
+    </tbody>
+
+  </table>  
+
+</div>
+
+
+

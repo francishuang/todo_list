@@ -1,0 +1,15 @@
+
+<div class="container">
+  <div class="text-center">
+    <%= @todo.name %>
+    <br>
+    <%= @todo.due_date %>
+    <br>
+    <%= @todo.note %>
+    <br>
+    <div class="itembox_btn">
+      <%= todo_edit_button(@todo) %>
+      <%= link_to 'Back', todos_path, class: 'btn btn-default' %>
+    </div>
+  </div>
+</div>
